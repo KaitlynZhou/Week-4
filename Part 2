@@ -1,0 +1,38 @@
+# Imagine that a vanquished dragon's loot is represented as a list of string like this:
+# dragonLoot=['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']
+# Write a function named addToInventory(inventory, addedItems), where the inventory parameter is a
+# dictionary representing the player's inventory (like in the previous project) and the addedItems
+# parameter is a list like dragonLoot. The addToInventory() function should return a dictionary that
+# represents the updated inventory. Note that the addedItems list can contain multiples of the same item.
+
+def addToInventory(inventory, addedItems):
+    for i in range(0, len(addedItems)-1):
+        new_key = 1
+        print(i)
+        for k in inventory.keys():
+            print(k)
+            if k == addedItems[i]:
+                inventory[k] = (inventory[k]+1)
+                new_key = 0
+    if new_key == 1:
+       inventory[addedItems[i]] = 1
+    return (inventory)
+
+def displayInventory(inventory):
+    print("Inventory:")
+    item_total = 0
+
+    for k in inventory.keys():
+        print (str(inventory[k])+' ' + str(k))
+        item_total = item_total+inventory[k]
+
+    print("Total number or items:" + str(item_total))
+    print()
+    exit()
+
+stuff={'gold coin': 42, 'rope': 1}
+dragonLoot=['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']
+
+displayInventory(stuff)
+stuff=addToInventory(stuff, dragonLoot)
+displayInventory(stuff)    
